@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dear Radhika</title>
+  <style>
+    body {
+      background-color: #fffbf0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      font-family: 'Cursive', sans-serif;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.8rem; /* Decreased font size */
+      color: #d63384;
+      position: relative;
+      z-index: 10;
+      animation: fadeIn 3s ease-in-out;
+      line-height: 1.4;
+      max-width: 90vw; /* Ensures text wraps nicely on the screen */
+    }
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff69b4;
+      transform: rotate(45deg);
+      animation: fallDown 6s infinite;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+    .heart::after {
+      left: 15px;
+      top: 0;
+    }
+    .rose-petals {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: #ff4d6d;
+      border-radius: 50%;
+      opacity: 0.9;
+      animation: fall 6s linear infinite;
+      transform: rotate(45deg);
+    }
+    @keyframes fallDown {
+      0% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(90deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Dear Radhika,<br><br>
+    I’ve spent the past five years thinking about you, and I just can’t forget the memories we shared.<br>
+    I miss you deeply. I’ve grown, and all I want is a chance to make things right.<br>
+    You’ve always held a special place in my heart.<br><br>
+    Please, come back. I miss you more than words can say.<br><br>
+    With love, Eliab.
+  </h1>
+
+  <!-- Falling Hearts and Rose Petals -->
+  <script>
+    // Falling Hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+    setInterval(createHeart, 300);
+
+    // Falling Rose Petals
+    function createRosePetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('rose-petals');
+      petal.style.left = `${Math.random() * 100}vw`;
+      petal.style.animationDuration = `${Math.random() * 2 + 5}s`;
+      document.body.appendChild(petal);
+      setTimeout(() => {
+        petal.remove();
+      }, 6000);
+    }
+    setInterval(createRosePetal, 500);
+  </script>
+</body>
+</html>
